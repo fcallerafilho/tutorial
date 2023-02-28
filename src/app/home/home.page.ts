@@ -25,7 +25,7 @@ export class HomePage {
     });
 
     console.log(users);
-
+//teste
     //segunda maneira de chamar todos os documentos de uma coleção
     collectionRef.valueChanges().subscribe((data) => {
       this.userVetor = data as User[];
