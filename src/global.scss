@@ -24,3 +24,180 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.content-basico {
+  --background: linear-gradient(180deg, #005ac0 40.61%, rgba(255, 255, 255, 0) 116.69%);;
+  --background-size: cover;
+  z-index: 5;
+  position: sticky;
+}
+
+.texto_tolbar {
+  z-index: 2;
+  margin-right: 10%;
+  width: 85%;
+  display: block;
+  text-align: center;
+  position: relative;
+}
+
+.toolbar-basico{
+    --background: #256A2F;
+    color: #ffffff;
+    font-size: 22px;
+    text-align: center;
+}
+
+.div-superior {
+  margin-top: 10px;
+  background-color: #ffffff;
+  color: black;
+  border-top-left-radius: 91px;
+  border-top-right-radius: 91px;
+  height: fit-content;
+  min-height: 100%;
+}
+
+ion-toolbar {
+  --background: transparent;
+  --border-style: none;
+}
+
+ion-back-button {
+  --color: #ffffff;
+}
+
+.input-login-cad {
+  font-weight: 400;
+  font-size: 17px;
+  background-color:#FFFFFF;
+  border-radius: 20px;
+  color: #000000;
+  margin-bottom: 15px;
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.icon-login-cad {
+  margin-left: 9px;
+  width: 22px;
+}
+
+/// css para as paginas de cadastro de informações
+
+.titulo {
+  padding-top: 3%;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 15px;
+  margin-left: 10%;
+}
+
+.label-aux {
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input{
+    --placeholder-color: rgb(36, 35, 35);
+    --placeholder-opacity: 0.85;
+    background: #C4C4C4;
+    border-radius: 80px;
+    width: 85%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    margin-bottom: 3%;
+    margin-top: 0.5%;
+    --padding-start: 3%
+}
+
+.input-area{
+    --placeholder-color: rgb(36, 35, 35);
+    --placeholder-opacity: 0.85;
+    --background: #C4C4C4;
+    border-radius: 10px;
+    width: 85%;
+    min-height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    margin-bottom: 3%;
+}
+
+.button-salvar {
+  color: black;
+  padding-bottom: 5%;
+
+  ion-button {
+    color: black;
+    --border-radius: 80px;
+    border-radius: 80px;
+    border: 1px solid black;
+    --background: #fdfdfd;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+
+    //centralizar
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    //espaçamento no icone
+    ion-icon {
+      margin-right: 4%;
+    }
+  }
+}
+.buttonMargin {
+  margin-top: 15%;
+}
+
+.native-textarea.sc-ion-textarea-md {
+  padding-bottom: 4.5%;
+  padding-top: 4.5%;
+}
+
+.native-textarea.sc-ion-textarea-md{
+    padding-bottom: 4.5%;
+    padding-top: 4.5%;
+}
+
+.texto_tolbar {
+    z-index: 2;
+
+    margin-right: 10%;
+    width: 85%;
+
+    display: block;
+    text-align: center;
+    position: relative;
+    //background-color: yellowgreen;
+  }
+
+  @media (min-width: 450px) {
+    .texto_tolbar {
+      margin-right: 5%;
+      width: 90%;
+      //background-color: cyan;
+    }
+}
+//comando para quando a tela tiver mais que 450px de largura
+@media (min-width: 450px) {
+  .texto_tolbar {
+    margin-right: 5%;
+    width: 90%;
+    //background-color: cyan;
+  }
+}

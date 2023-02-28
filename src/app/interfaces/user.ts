@@ -1,5 +1,8 @@
 export interface User {
   nome: string;
   cpf: string;
-  id: string;
+  cidade: string;
+  endereco: string;
+  cep: string;
+  email: string;
 }
