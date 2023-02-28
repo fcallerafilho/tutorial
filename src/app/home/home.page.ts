@@ -18,9 +18,7 @@ export class HomePage {
     //primeira maneira de chamar todos os documentos de uma coleção
     const collectionRef = this.fireStore.collection('users');
 
-    let userBanco;
-
-    userBanco = await collectionRef.get().toPromise();
+    let userBanco = await collectionRef.get().toPromise();
 
     let users = userBanco?.docs.map((doc) => {
       return doc.data();
