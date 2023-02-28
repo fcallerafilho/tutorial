@@ -23,6 +23,7 @@
     "@capacitor/core": "^4.7.0",
     "@capacitor/storage": "^1.2.5",
     "@ionic/angular": "^6.1.9",
+    "capacitor": "^0.5.5",
     "firebase": "^9.17.1",
     "ionicons": "^6.0.3",
     "rxjs": "~7.5.0",
