@@ -1,0 +1,86 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-basico">
+  <div class="container-imagem">
+    <ion-img class="img-logo" src="../../../assets/icon/logo.png"></ion-img>
+  </div>
+
+  <div class="container-login">
+    <h1 class="titulo-login-cad">Cadastre-se</h1>
+
+    <ion-input class="input-login-cad" placeholder="Foto do usuário">
+      <ion-icon class="icon-login-cad" name="camera" slot="start"></ion-icon>
+    </ion-input>
+
+    <ion-input
+      [(ngModel)]="user.nome"
+      class="input-login-cad"
+      placeholder="Nome"
+    >
+      <ion-icon class="icon-login-cad" name="person" slot="start"></ion-icon>
+    </ion-input>
+
+    <ion-input [(ngModel)]="user.cpf" class="input-login-cad" placeholder="CPF">
+      <ion-icon class="icon-login-cad" name="key" slot="start"></ion-icon>
+    </ion-input>
+
+    <ion-input [(ngModel)]="user.cep" class="input-login-cad" placeholder="CEP">
+      <ion-icon class="icon-login-cad" name="location" slot="start"></ion-icon>
+    </ion-input>
+
+    <ion-input
+    [(ngModel)]="user.endereco"
+    class="input-login-cad"
+    placeholder="Endereço"
+    >
+    <ion-icon class="icon-login-cad" name="location" slot="start"></ion-icon>
+  </ion-input>
+
+  <ion-input
+    [(ngModel)]="user.cidade"
+    class="input-login-cad"
+    placeholder="Cidade"
+  >
+    <ion-icon class="icon-login-cad" name="business" slot="start"></ion-icon>
+  </ion-input>
+  <ion-input
+  [(ngModel)]="user.email"
+      class="input-login-cad"
+      placeholder="Email"
+      inputmode="email"
+    >
+      <ion-icon class="icon-login-cad" name="mail" slot="start"></ion-icon>
+    </ion-input>
+
+    <ion-input
+      [(ngModel)]="senha1"
+      class="input-login-cad"
+      placeholder="Criar senha"
+    >
+      <ion-icon class="icon-login-cad" name="key" slot="start"></ion-icon>
+    </ion-input>
+
+    <ion-input
+      [(ngModel)]="senha2"
+      class="input-login-cad"
+      placeholder="Confrimar senha"
+    >
+      <ion-icon class="icon-login-cad" name="key" slot="start"></ion-icon>
+    </ion-input>
+  </div>
+
+  <div class="container-botao">
+    <ion-button
+      class="botao-cadastrar"
+      expand="block"
+      (click)="realizarCadastro()"
+      >Cadastrar</ion-button
+    >
+  </div>
+</ion-content>
