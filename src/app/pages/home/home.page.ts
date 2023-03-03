@@ -151,6 +151,7 @@ export class HomePage {
         {
           text: 'Ok',
           handler: () => {
+            // ESTA FUNÇÃO ESTÁ FUNCIONANDO.
             // this.fireStore
             //   .collection('users')
             //   .doc(this.userVetor[i].uid)
@@ -166,7 +167,8 @@ export class HomePage {
 
   async deletarEmail(uid: any) {
     console.log('deletando email do ' + uid);
-    /*
+
+    /* FALTA DELETAR O EMAIL DO USUÁRIO
     await this.auth.currentUser.then(async (user:any) => {
       await user.delete();
       await this.fireStore.collection('users').doc(uid).delete();
