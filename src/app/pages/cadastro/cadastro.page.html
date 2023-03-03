@@ -29,9 +29,11 @@
     <ion-input [(ngModel)]="user.cep" class="input-login-cad" placeholder="CEP">
       <ion-icon class="icon-login-cad" name="location" slot="start"></ion-icon>
     </ion-input>
+    <ion-button (click) = "buscarCEP(user.cep)" color="dark">Verificar CEP</ion-button>
 
     <ion-input
     [(ngModel)]="user.endereco"
+    [disabled]="true"
     class="input-login-cad"
     placeholder="Endereço"
     >
@@ -40,6 +42,7 @@
 
   <ion-input
     [(ngModel)]="user.cidade"
+    [disabled]="true"
     class="input-login-cad"
     placeholder="Cidade"
   >

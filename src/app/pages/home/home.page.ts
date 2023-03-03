@@ -1,10 +1,12 @@
+import { ToastService } from './../../services/toast.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { User } from 'src/app/interfaces/user';
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { alertController } from '@ionic/core';
+import { CepService } from 'src/app/services/cep.service';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +19,11 @@ export class HomePage {
 
   constructor(
     private fireStore: AngularFirestore,
-    alertCtrl: AlertController,
-    auth: AngularFireAuth,
-    firebaseService: FirebaseService
+    private alertCtrl: AlertController,
+    private auth: AngularFireAuth,
+    private firebaseService: FirebaseService,
+    private cepService: CepService,
+    private toast: ToastService
   ) {
     this.getUserData();
   }
@@ -55,6 +59,8 @@ export class HomePage {
         <li> CPF: ${this.userVetor[i].cpf} </li>
         <p> </p>
         <li> CEP: ${this.userVetor[i].cep} </li>
+        <p> </p>
+        <li> endereço: ${this.userVetor[i].endereco} </li>
         <p> </p>
         <li> Cidade: ${this.userVetor[i].cidade} </li>
         <p> </p>
@@ -92,18 +98,6 @@ export class HomePage {
           placeholder: 'CEP',
           value: this.userVetor[i].cep,
         },
-        {
-          name: 'cidade',
-          type: 'text',
-          placeholder: 'Cidade',
-          value: this.userVetor[i].cidade,
-        },
-        {
-          name: 'email',
-          type: 'text',
-          placeholder: 'Email',
-          value: this.userVetor[i].email,
-        },
       ],
       buttons: [
         {
@@ -116,18 +110,23 @@ export class HomePage {
         },
         {
           text: 'Ok',
-          handler: (data) => {
-            console.log(data);
-            this.fireStore
-              .collection('users')
-              .doc(this.userVetor[i].uid)
-              .update({
-                nome: data.nome,
-                cpf: data.cpf,
-                cep: data.cep,
-                cidade: data.cidade,
-                email: data.email,
-              });
+          handler: async (data) => {
+            const meuEndereco = await this.cepService.consultaCEP(data.cep);
+            if (meuEndereco.logradouro == '') {
+              this.toast.showToast(meuEndereco.gia);
+            } else {
+              console.log(data);
+              this.fireStore
+                .collection('users')
+                .doc(this.userVetor[i].uid)
+                .update({
+                  nome: data.nome,
+                  cpf: data.cpf,
+                  cep: data.cep,
+                  endereco: meuEndereco.logradouro,
+                  cidade: meuEndereco.localidade,
+                });
+            }
           },
         },
       ],
