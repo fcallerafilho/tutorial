@@ -1,0 +1,78 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="content-basico">
+  <div class="container-imagem">
+    <ion-img class="img-logo" src="../../../assets/icon/logo.png"></ion-img>
+  </div>
+  <div class="container-login">
+    <h2 class="container-user">Usuários</h2>
+
+    <ion-segment [(ngModel)]="segmentChange">
+      <ion-segment-button value="visualizar">
+        <ion-label color="dark"><b>Visualizar</b></ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="editar">
+        <ion-label color="warning"><b>Editar</b></ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="excluir">
+        <ion-label color="danger"><b>Excluir</b></ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <!-- VISUALIZAR -->
+    <div *ngIf="segmentChange == 'visualizar'">
+      <ion-list>
+        <ion-item>
+          <ion-label><b>Nome</b></ion-label>
+          <ion-label><b>CPF</b></ion-label>
+        </ion-item>
+        <ion-item
+          *ngFor="let user of userVetor; let i=index"
+          (click)="alertVisualizarInformacoes(i)"
+        >
+          <ion-label>{{user.nome}}</ion-label>
+          <ion-label>{{user.cpf}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <!-- EDITAR -->
+    <div *ngIf="segmentChange == 'editar'">
+      <ion-list>
+        <ion-item>
+          <ion-label><b>Nome</b></ion-label>
+          <ion-label><b>CPF</b></ion-label>
+        </ion-item>
+        <ion-item
+          *ngFor="let user of userVetor; let i=index"
+          (click)="alertEditarInformacoes(i)"
+        >
+          <ion-label>{{user.nome}}</ion-label>
+          <ion-label>{{user.cpf}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <!-- EXCLUIR -->
+    <div *ngIf="segmentChange == 'excluir'">
+      <ion-list>
+        <ion-item>
+          <ion-label><b>Nome</b></ion-label>
+          <ion-label><b>CPF</b></ion-label>
+        </ion-item>
+        <ion-item
+          *ngFor="let user of userVetor; let i=index"
+          (click)="alertExcluirUsuario(i)"
+        >
+          <ion-label>{{user.nome}}</ion-label>
+          <ion-label>{{user.cpf}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>
