@@ -6,13 +6,23 @@
   margin-left: 1.5rem;
 }
 
-.img-logo{
+.img-logo {
   width: 30%;
   margin: auto;
 }
 
-.container-imagem{
+.container-imagem {
   width: 100%;
   align-items: center;
   margin-bottom: -30px;
 }
+
+.segment {
+  --background: #ffffff;
+
+}
+
+.segment-button:active {
+  background-color: #002fff;
+}
+

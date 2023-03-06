@@ -12,14 +12,14 @@
   <div class="container-login">
     <h2 class="container-user">Usuários</h2>
 
-    <ion-segment [(ngModel)]="segmentChange">
-      <ion-segment-button value="visualizar">
+    <ion-segment [(ngModel)]="segmentChange" class="segment">
+      <ion-segment-button value="visualizar" class="segment-button">
         <ion-label color="dark"><b>Visualizar</b></ion-label>
       </ion-segment-button>
-      <ion-segment-button value="editar">
+      <ion-segment-button value="editar" class="segment-button">
         <ion-label color="warning"><b>Editar</b></ion-label>
       </ion-segment-button>
-      <ion-segment-button value="excluir">
+      <ion-segment-button value="excluir" class="segment-button">
         <ion-label color="danger"><b>Excluir</b></ion-label>
       </ion-segment-button>
     </ion-segment>
