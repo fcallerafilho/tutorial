@@ -178,4 +178,62 @@ export class HomePage {
     );
     */
   }
+
+  async alertCadastrarUsuario() {
+    const alert = await alertController.create({
+      header: 'Cadastrar usuário',
+      inputs: [
+        {
+          name: 'nome',
+          type: 'text',
+          placeholder: 'Nome',
+        },
+        {
+          name: 'cpf',
+          type: 'text',
+          placeholder: 'CPF',
+        },
+        {
+          name: 'cep',
+          type: 'text',
+          placeholder: 'CEP',
+        },
+        {
+          name: 'email',
+          type: 'email',
+          placeholder: 'Email',
+        },
+        {
+          name: 'senha',
+          type: 'password',
+          placeholder: 'Senha',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          },
+        },
+        {
+          text: 'Ok',
+          handler: async (data) => {
+            const meuEndereco = await this.cepService.consultaCEP(data.cep);
+            if (meuEndereco.logradouro == '') {
+              this.toast.showToast(meuEndereco.gia);
+            } else {
+              console.log(data);
+              //this.cadastrarUsuario(data, meuEndereco);
+            }
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+
 }
