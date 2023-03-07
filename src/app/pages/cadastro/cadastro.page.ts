@@ -4,7 +4,6 @@ import { AlertController } from '@ionic/angular';
 import { User } from 'src/app/interfaces/user';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { NavegacaoService } from 'src/app/services/navegacao.service';
-import { CepService } from 'src/app/services/cep.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -22,7 +21,6 @@ export class CadastroPage implements OnInit {
     private nav: NavegacaoService,
     public alertController: AlertController,
     private toast: ToastService,
-    private cepService: CepService
   ) {}
 
   ngOnInit() {}
@@ -63,18 +61,6 @@ export class CadastroPage implements OnInit {
       }
     } else {
       this.toast.showToast('Conflito entre as senhas digitadas!');
-    }
-  }
-
-  async buscarCEP(cep: string) {
-    const meuEndereco = await this.cepService.consultaCEP(cep);
-    console.log(meuEndereco);
-
-    if (meuEndereco.logradouro == '') {
-      this.toast.showToast(meuEndereco.gia);
-    } else {
-      this.user.endereco = meuEndereco.logradouro + ', ' + meuEndereco.bairro;
-      this.user.cidade = meuEndereco.localidade + ' - ' + meuEndereco.uf;
     }
   }
 }
