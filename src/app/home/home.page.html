@@ -9,4 +9,12 @@
   <div *ngFor="let user of userVetor" class="div-info">
     <p>{{user.nome}}, {{user.cpf}}</p>
   </div>
+
+  <ion-input
+  [(ngModel)] = "this.cep"
+  placeholder="digite seu cep"
+  >
+  </ion-input>
+  <ion-button (click) = "verificarCEP(this.cep)"> Verificar CEP</ion-button>
+
 </ion-content>

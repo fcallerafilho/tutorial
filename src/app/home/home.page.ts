@@ -1,6 +1,7 @@
 import { User } from './../interfaces/user';
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { BuscaCEPService } from '../services/busca-cep.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,12 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class HomePage {
   userVetor: User[] = [];
 
-  constructor(private fireStore: AngularFirestore) {
+  cep: string = '';
+
+  constructor(
+    private fireStore: AngularFirestore,
+    private buscaCEP: BuscaCEPService
+  ) {
     this.getUserData();
   }
 
@@ -25,11 +31,19 @@ export class HomePage {
     });
 
     console.log(users);
-//teste
+    //teste
     //segunda maneira de chamar todos os documentos de uma coleção
     collectionRef.valueChanges().subscribe((data) => {
       this.userVetor = data as User[];
       console.log(this.userVetor);
     });
+  }
+
+  async verificarCEP(cep: string) {
+    console.log(cep);
+    const enderecoColocado = await this.buscaCEP.consultaCEP(cep);
+    console.log(enderecoColocado);
+    console.log(enderecoColocado.logradouro);
+
   }
 }
